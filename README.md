@@ -1,53 +1,155 @@
-# Library API - Documentation
+# Library API - Postman Collection & API Documentation
 
-This repository contains the documentation for the Library API, which provides endpoints for managing books and user skills.
+## Overview
+
+This repository contains a **Postman collection** and API documentation for the **Library API**.
+
+The collection is designed to support API testing and request workflow validation for book management and skill-check operations. It includes endpoints for retrieving books, filtering fiction books, creating new books, checking out books, deleting books, and performing skill checks.
+
+## Repository Contents
+
+```text
+Postman_Course/
+├── Postman Library API v2.postman_collection.json   # Postman collection
+└── README.md                                       # API documentation
+```
+
+## Tech Stack
+
+* Postman
+* REST API
+* JSON
+* HTTP Methods
+* API Testing
+
+## Prerequisites
+
+Before using this project, make sure you have the following installed:
+
+* Postman
+* Git
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Alez-Estacio/Postman_Course.git
+```
+
+Navigate to the project folder:
+
+```bash
+cd Postman_Course
+```
+
+## Importing the Collection in Postman
+
+To use the API collection:
+
+1. Open Postman.
+2. Click **Import**.
+3. Select the file:
+
+```text
+Postman Library API v2.postman_collection.json
+```
+
+4. Import the collection into your workspace.
+5. Configure the API host or base URL according to the target environment.
+6. Start sending requests from the imported collection.
 
 ## Available Endpoints
 
-### Get all books
+| Method | Endpoint              | Description                                           |
+| ------ | --------------------- | ----------------------------------------------------- |
+| GET    | `/books`              | Retrieves all available books in the library.         |
+| GET    | `/fiction-books`      | Retrieves all fiction books available in the library. |
+| GET    | `/books/:id`          | Retrieves a specific book by its ID.                  |
+| POST   | `/books`              | Adds a new book to the library.                       |
+| PATCH  | `/books/:id/checkout` | Updates a book status to checked out.                 |
+| DELETE | `/books/:id`          | Deletes a book from the library.                      |
+| POST   | `/skill-check`        | Performs a skill-check request.                       |
 
+## Endpoint Details
+
+### Get All Books
+
+```http
 GET /books
+```
 
-This endpoint returns all the available books in the library.
+Returns the full list of books available in the library.
 
-### Get fiction books
+### Get Fiction Books
 
+```http
 GET /fiction-books
+```
 
-Returns all the fiction books available in the library.
+Returns the list of fiction books available in the library.
 
-### Get book by ID
+### Get Book by ID
 
+```http
 GET /books/:id
+```
 
-Returns information about a specific book identified by its ID.
+Returns the details of a specific book using its unique ID.
 
-### Add a book
+### Add a Book
 
+```http
 POST /books
+```
 
-Allows adding a new book to the library.
+Creates a new book record in the library.
 
-### Update book status
+The request must include the required book information in the request body according to the API specification.
 
+### Check Out a Book
+
+```http
 PATCH /books/:id/checkout
+```
 
-Marks a book as "checked out", indicating it has been borrowed.
+Updates the status of a book to indicate that it has been checked out or borrowed.
 
-### Delete a book
+### Delete a Book
 
+```http
 DELETE /books/:id
+```
 
-Deletes a book from the library.
+Deletes a specific book from the library using its unique ID.
 
-### Perform a skill check
+### Perform a Skill Check
 
+```http
 POST /skill-check
+```
 
-Allows performing a skill check.
+Executes a skill-check request.
 
 ## Usage
 
-To use this API, you can send HTTP requests to the mentioned endpoints using any HTTP client or API testing tool like Postman.
+You can use this API documentation and Postman collection to:
 
-Make sure to include necessary data in the requests, such as the request body for adding a book or the book ID in requests that require it.
+* Validate Library API endpoints.
+* Execute manual API tests.
+* Review request and response workflows.
+* Practice REST API testing with Postman.
+* Document API behavior in a structured way.
+
+## Notes
+
+* Make sure the API base URL is correctly configured before sending requests.
+* Requests that require a book ID must use a valid existing ID.
+* Requests that create or update data must include the required request body.
+* The Postman collection can be extended with test scripts, environment variables, and automated assertions.
+
+## Author
+
+**Alezander Estacio**
+
+QA Automation Engineer
